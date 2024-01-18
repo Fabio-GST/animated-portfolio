@@ -2,7 +2,7 @@ import { useRef } from "react";
 import "./portfolio.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-const projects = [
+const items = [
   {
     id: 1,
     title: "Power BI Music App",
@@ -28,7 +28,6 @@ const projects = [
     desc: "Um aplicativo móvel simples construído com Flutter para rastrear tarefas diárias.",
   },
 ];
-
 
 const Single = ({ item }) => {
   const ref = useRef();
