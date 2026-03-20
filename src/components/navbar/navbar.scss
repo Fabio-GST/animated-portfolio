@@ -1,12 +1,14 @@
 @import "../../app.scss";
 
 .navbar {
-  height: 100px;
-
+  height: 70px;
+  position: relative;
+  z-index: 100;
 
   .wrapper {
     max-width: 1366px;
     margin: auto;
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,27 +16,41 @@
 
     @include mobile {
       justify-content: flex-end;
-      padding: 20px;
+      padding: 0 20px;
     }
 
     span {
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      @include gradient-text;
 
-      @include mobile {
-        display: none;
-      }
+      @include mobile { display: none; }
     }
 
     .social {
       display: flex;
-      gap: 20px;
-      
+      align-items: center;
+      gap: 16px;
 
-      img {
-        width: 18px;
-        height: 18px;
-        color: white;
-        
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        @include glass(0.05);
+        transition: background 0.2s, transform 0.2s;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.7);
+
+        &:hover {
+          background: rgba(218, 78, 162, 0.15);
+          color: #da4ea2;
+          transform: translateY(-2px);
+        }
       }
     }
   }

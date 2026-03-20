@@ -1,92 +1,242 @@
 @import "../../app.scss";
 
 .hero {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 70px);
   overflow: hidden;
-  background: linear-gradient(180deg, #0c0c1d, #111132);
+  background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(123, 47, 255, 0.12), transparent),
+              radial-gradient(ellipse 60% 80% at 30% 80%, rgba(218, 78, 162, 0.08), transparent),
+              #070714;
   position: relative;
+  display: flex;
+  align-items: center;
 
   .wrapper {
     max-width: 1366px;
+    width: 100%;
     height: 100%;
     margin: auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+
+    @include mobile { padding: 0 20px; }
 
     .textContainer {
-      width: 50%;
-      height: 100%;
+      width: 52%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 40px;
+      gap: 28px;
 
       @include mobile {
-        height: 50%;
         width: 100%;
         gap: 20px;
         align-items: center;
         text-align: center;
       }
 
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include mobile { justify-content: center; }
+
+        .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #da4ea2;
+          box-shadow: 0 0 8px #da4ea2;
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        span {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+
       h2 {
-        font-size: 30px;
-        color: rebeccapurple;
-        letter-spacing: 10px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        @include gradient-text;
       }
 
       h1 {
-        font-size: 88px;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1.05;
+        color: #fff;
+        letter-spacing: -1px;
 
-        @include mobile {
-          font-size: 36px;
-        }
+        @include tablet { font-size: 52px; }
+        @include mobile { font-size: 36px; }
+      }
+
+      .subtext {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.45);
+        max-width: 400px;
+        line-height: 1.7;
+
+        @include mobile { font-size: 14px; }
       }
 
       .buttons {
+        display: flex;
+        gap: 14px;
+
+        @include mobile { flex-direction: column; width: 100%; }
+
         button {
-          padding: 20px;
-          border: 1px solid white;
+          padding: 14px 28px;
           border-radius: 10px;
-          background-color: transparent;
-          color: white;
-          margin-right: 20px;
           cursor: pointer;
-          font-weight: 300;
+          font-weight: 500;
+          font-size: 14px;
+          font-family: "DM Sans", sans-serif;
+          transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+
+          &:first-child {
+            background: linear-gradient(135deg, #da4ea2, #7b2fff);
+            border: none;
+            color: white;
+            box-shadow: 0 8px 24px rgba(218, 78, 162, 0.35);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 12px 32px rgba(218, 78, 162, 0.5);
+            }
+          }
+
+          &:last-child {
+            @include glass(0.05);
+            color: rgba(255, 255, 255, 0.75);
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.08);
+              transform: translateY(-2px);
+            }
+          }
+
+          a { color: inherit; }
         }
       }
 
-      img {
-        width: 50px;
+      .githubStats {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        @include glass(0.04);
+        border-radius: 12px;
+        width: fit-content;
+        overflow: hidden;
+
+        @include mobile { width: 100%; justify-content: center; }
+
+        .statItem {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 3px;
+          padding: 14px 24px;
+          cursor: pointer;
+          transition: background 0.2s;
+          text-decoration: none;
+
+          &:hover { background: rgba(218, 78, 162, 0.1); }
+
+          .statNum {
+            font-size: 20px;
+            font-weight: 700;
+            @include gradient-text;
+          }
+
+          .statLabel {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.35);
+          }
+        }
+
+        .statDivider {
+          width: 1px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.07);
+          flex-shrink: 0;
+        }
+      }
+
+      .scrollHint {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 12px;
+
+        img { width: 20px; opacity: 0.4; }
       }
     }
   }
 
   .imageContainer {
     height: 100%;
+    width: 45%;
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
 
     @include mobile {
-      height: 50%;
-      width: 100%;
-      top: unset;
-      bottom: 0;
+      display: none;
     }
 
-    img{
-      width: 100%;
-      height: 100%;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123, 47, 255, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    img {
+      width: 340px;
+      height: 340px;
       object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(218, 78, 162, 0.3);
+      box-shadow:
+        0 0 0 12px rgba(218, 78, 162, 0.05),
+        0 0 60px rgba(218, 78, 162, 0.2),
+        0 0 120px rgba(123, 47, 255, 0.15);
+      position: relative;
+      z-index: 1;
     }
   }
 
   .slidingTextContainer {
     position: absolute;
-    font-size: 50vh;
-    bottom: -120px;
+    font-size: 28vw;
+    bottom: -80px;
     white-space: nowrap;
-    color: #ffffff09;
-    width: 50%;
-    font-weight: bold;
+    color: rgba(255, 255, 255, 0.025);
+    font-weight: 800;
+    letter-spacing: -4px;
+    pointer-events: none;
+    user-select: none;
   }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
 }

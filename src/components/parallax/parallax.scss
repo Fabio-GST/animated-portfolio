@@ -10,12 +10,15 @@
   overflow: hidden;
 
   h1 {
-    font-size: 100px;
+    font-size: clamp(56px, 8vw, 100px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 4;
+    position: relative;
 
-    @include mobile {
-      font-size: 72px;
-      text-align: center;
-    }
+    @include mobile { font-size: 44px; }
   }
 
   .mountains {
@@ -32,6 +35,7 @@
       background-repeat: no-repeat;
     }
   }
+
   .planets {
     background-size: cover;
     background-position: bottom;
@@ -39,11 +43,13 @@
     height: 100%;
     position: absolute;
     z-index: 2;
+
     @include mobile {
       background-size: contain;
       background-repeat: no-repeat;
     }
   }
+
   .stars {
     background-image: url("/stars.png");
     background-size: cover;

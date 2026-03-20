@@ -1,6 +1,17 @@
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: #da4ea2 #070714;
+
+  &::-webkit-scrollbar { width: 5px; }
+  &::-webkit-scrollbar-track { background: #070714; }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #da4ea2, #7b2fff);
+    border-radius: 3px;
+  }
 }
 
 * {
@@ -11,8 +22,9 @@ html {
 }
 
 body {
-  background-color: #0c0c1d;
-  color: lightgray;
+  background-color: #070714;
+  color: #e2e2f0;
+  overflow-x: hidden;
 }
 
 a {
@@ -27,18 +39,26 @@ section {
   overflow: hidden;
 }
 
-@mixin mobile {
-  @media (max-width: 738px) {
-    @content;
-  }
+/* Mixin breakpoints */
+@mixin mobile  { @media (max-width: 738px)  { @content; } }
+@mixin tablet  { @media (max-width: 1024px) { @content; } }
+@mixin desktop { @media (max-width: 1366px) { @content; } }
+
+/* Utilitários */
+@mixin glass($opacity: 0.04) {
+  background: rgba(255, 255, 255, $opacity);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
-@mixin tablet {
-  @media (max-width: 1024px) {
-    @content;
-  }
+
+@mixin glow($color: #da4ea2, $spread: 40px) {
+  box-shadow: 0 0 $spread rgba($color, 0.25);
 }
-@mixin desktop {
-  @media (max-width: 1366px) {
-    @content;
-  }
+
+@mixin gradient-text {
+  background: linear-gradient(135deg, #da4ea2, #a16fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

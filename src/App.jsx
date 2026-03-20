@@ -1,7 +1,5 @@
-import Test from "./Test";
 import "./app.scss";
 import Contact from "./components/contact/Contact";
-import Cursor from "./components/cursor/Cursor";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
 import Parallax from "./components/parallax/Parallax";
@@ -18,7 +16,7 @@ const App = () => {
       <section id="Tecnologias">
         <Parallax type="services" />
       </section>
-      <section>
+      <section style={{ background: "#070714" }}>
         <Services />
       </section>
       <section id="Projetos">
@@ -28,9 +26,6 @@ const App = () => {
       <section id="Contato">
         <Contact />
       </section>
-      {/* Framer Motion Crash Course */}
-      {/* <Test/>
-    <Test/> */}
     </div>
   );
 };
