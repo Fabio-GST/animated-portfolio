@@ -1,51 +1,103 @@
 import { useRef } from "react";
 import "./services.scss";
 import { motion, useInView } from "framer-motion";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiNodedotjs,
+  SiPython,
+  SiTailwindcss,
+  SiPostgresql,
+  SiDocker,
+  SiGit,
+} from "react-icons/si";
 
 const techs = [
   {
-    icon: "⚡",
-    name: "Next.js",
-    desc: "Apps web eficientes e escaláveis com SSR e SSG.",
+    Icon: SiReact,
+    color: "#61DAFB",
+    name: "React",
+    desc: "Interfaces reativas e componentizadas com alta performance.",
     tag: "Frontend",
   },
   {
-    icon: "🔷",
+    Icon: SiNextdotjs,
+    color: "#ffffff",
+    name: "Next.js",
+    desc: "Apps fullstack com SSR, SSG e App Router.",
+    tag: "Frontend",
+  },
+  {
+    Icon: SiTypescript,
+    color: "#3178C6",
     name: "TypeScript",
-    desc: "Código robusto e tipado para projetos de longa duração.",
+    desc: "Código tipado e robusto para projetos escaláveis.",
     tag: "Linguagem",
   },
   {
-    icon: "🟨",
+    Icon: SiJavascript,
+    color: "#F7DF1E",
     name: "JavaScript",
-    desc: "Interfaces interativas e dinâmicas do lado do cliente.",
+    desc: "Lógica dinâmica e interatividade no cliente e servidor.",
     tag: "Linguagem",
   },
   {
-    icon: "🐍",
-    name: "Python",
-    desc: "Automação, análise de dados e back-end versátil.",
+    Icon: SiNodedotjs,
+    color: "#339933",
+    name: "Node.js",
+    desc: "APIs e serviços backend escaláveis com JavaScript.",
     tag: "Backend",
   },
   {
-    icon: "📊",
-    name: "Power BI",
-    desc: "Dashboards e relatórios de business intelligence.",
-    tag: "Analytics",
+    Icon: SiPython,
+    color: "#3776AB",
+    name: "Python",
+    desc: "Automação, scripts e back-end versátil.",
+    tag: "Backend",
+  },
+  {
+    Icon: SiTailwindcss,
+    color: "#06B6D4",
+    name: "Tailwind CSS",
+    desc: "Estilização utilitária rápida e consistente.",
+    tag: "Estilo",
+  },
+  {
+    Icon: SiPostgresql,
+    color: "#4169E1",
+    name: "PostgreSQL",
+    desc: "Banco relacional robusto para dados complexos.",
+    tag: "Banco de Dados",
+  },
+  {
+    Icon: SiDocker,
+    color: "#2496ED",
+    name: "Docker",
+    desc: "Containerização de apps para ambientes reproduzíveis.",
+    tag: "DevOps",
+  },
+  {
+    Icon: SiGit,
+    color: "#F05032",
+    name: "Git",
+    desc: "Controle de versão e fluxo colaborativo de código.",
+    tag: "DevOps",
   },
 ];
 
 const container = {
   initial: {},
-  animate: { transition: { staggerChildren: 0.1 } },
+  animate: { transition: { staggerChildren: 0.07 } },
 };
 
 const item = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 28 },
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
@@ -71,17 +123,25 @@ const Services = () => {
           </h1>
         </div>
         <p className="desc">
-          Especializo-me em utilizar tecnologia para impulsionar sua marca. Cada ferramenta foi escolhida para entregar resultados reais.
+          Ferramentas escolhidas para cobrir todo o ciclo de desenvolvimento — do design ao deploy — com qualidade e eficiência.
         </p>
       </motion.div>
 
       <motion.div className="grid" variants={container}>
-        {techs.map((t) => (
-          <motion.div className="box" key={t.name} variants={item} whileHover="hover">
-            <span className="icon">{t.icon}</span>
-            <h2>{t.name}</h2>
-            <p>{t.desc}</p>
-            <span className="tag">{t.tag}</span>
+        {techs.map(({ Icon, color, name, desc, tag }) => (
+          <motion.div
+            className="box"
+            key={name}
+            variants={item}
+            style={{ "--tech-color": color }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+          >
+            <span className="icon" style={{ color }}>
+              <Icon />
+            </span>
+            <h2>{name}</h2>
+            <p>{desc}</p>
+            <span className="tag">{tag}</span>
           </motion.div>
         ))}
       </motion.div>
