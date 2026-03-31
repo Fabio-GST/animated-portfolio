@@ -73,177 +73,31 @@ Plataforma **CRM Comercial** para centralizar o gerenciamento de clientes, leads
 - Filtros avançados por origem, status, responsável e período`,
   },
   {
-    id: 7,
-    name: "E-commerce Completo",
-    description: "Loja virtual com carrinho, pagamentos e painel administrativo.",
+    id: 8,
+    name: "Plataforma de SMS",
+    description: "Sistema de envio e gestão de campanhas de SMS em massa com painel analítico.",
     language: "TypeScript",
+    images: ["/sms1.png", "/sms2.png"],
+    private: true,
     details: `## Sobre o Projeto
-Plataforma de e-commerce completa para demonstrar habilidades fullstack.
+Plataforma para **gestão e disparo de campanhas de SMS em massa**, com painel analítico, controle de créditos e relatórios de entrega.
 
-### Stack Sugerida
-- **Frontend:** React + TypeScript, TailwindCSS, Zustand
-- **Backend:** Node.js + Express ou NestJS
-- **Banco:** PostgreSQL + Prisma
-- **Pagamentos:** Stripe ou Mercado Pago
-- **Auth:** JWT + refresh tokens
+### Stack de Tecnologias
+- **Frontend:** React, TypeScript, TailwindCSS
+- **Backend:** Node.js + AdonisJS
+- **Banco:** MySQL / PostgreSQL
+- **Filas:** RabbitMQ — processamento assíncrono de disparos
+- **Integração:** Operadoras de SMS via API
 
 ### Funcionalidades Principais
-- Catálogo de produtos com filtros e busca
-- Carrinho de compras persistente
-- Checkout com múltiplas formas de pagamento
-- Painel admin (CRUD produtos, pedidos, usuários)
-- Sistema de autenticação e perfis
-- Emails transacionais (confirmação, envio)
-
-### Diferenciais
-- Upload de imagens (S3 ou Cloudinary)
-- Dashboard de métricas de vendas
-- Cupons e promoções`,
+- Criação e agendamento de campanhas de SMS
+- Upload de listas de contatos (CSV)
+- Painel analítico — entregues, falhos, taxa de abertura
+- Gestão de créditos e planos
+- Histórico detalhado de campanhas
+- Multi-usuário com perfis e permissões`,
   },
-  {
-    id: 2,
-    name: "Sistema de Gerenciamento",
-    description: "SaaS para gestão de tarefas, clientes ou projetos.",
-    language: "React",
-    details: `## Sobre o Projeto
-Aplicação tipo SaaS com múltiplos tenants e recursos de gestão.
 
-### Stack Sugerida
-- **Frontend:** React/Next.js, shadcn/ui, TanStack Query
-- **Backend:** Node.js + Fastify ou Python FastAPI
-- **Banco:** PostgreSQL com row-level security
-- **Realtime:** WebSockets ou Server-Sent Events
-- **Auth:** NextAuth ou Auth0
-
-### Funcionalidades Principais
-- Cadastro de empresas (multi-tenant)
-- Gestão de usuários e permissões (RBAC)
-- Kanban de tarefas ou CRM de clientes
-- Relatórios e exportação (PDF, Excel)
-- Notificações em tempo real
-- Assinaturas e billing (Stripe)
-
-### Diferenciais
-- Dashboard customizável
-- API pública para integrações
-- Modo offline (PWA)`,
-  },
-  {
-    id: 3,
-    name: "Rede Social ou Fórum",
-    description: "Plataforma com feed, comentários, likes e mensagens.",
-    language: "Node",
-    details: `## Sobre o Projeto
-Rede social ou fórum de nicho para praticar arquitetura escalável.
-
-### Stack Sugerida
-- **Frontend:** Next.js (App Router), React Query, Socket.io-client
-- **Backend:** Node.js + Socket.io
-- **Banco:** MongoDB ou PostgreSQL
-- **Cache:** Redis (sessões, filas)
-- **Storage:** S3 para mídia
-
-### Funcionalidades Principais
-- Feed com infinite scroll e paginação
-- Posts com texto, imagens e vídeos
-- Comentários em threads
-- Sistema de likes e reações
-- Chat em tempo real (DM e grupos)
-- Notificações push
-- Follow/unfollow entre usuários
-
-### Diferenciais
-- Moderação com IA (detecção de spam)
-- Busca full-text (Elasticsearch)
-- Modo dark/light`,
-  },
-  {
-    id: 4,
-    name: "Plataforma de Cursos",
-    description: "E-learning com vídeos, progresso e certificados.",
-    language: "Python",
-    details: `## Sobre o Projeto
-Plataforma de cursos online similar a Udemy/Coursera.
-
-### Stack Sugerida
-- **Frontend:** React ou Vue.js
-- **Backend:** Python FastAPI ou Django
-- **Banco:** PostgreSQL
-- **Vídeos:** AWS S3 + CloudFront ou Bunny.net
-- **Transcodificação:** FFmpeg
-
-### Funcionalidades Principais
-- Catálogo de cursos por categoria
-- Player de vídeo com progresso (timestamps)
-- Sistema de avaliações e reviews
-- Certificados gerados em PDF
-- Área do instrutor (upload, analytics)
-- Assinatura mensal ou compra avulsa
-- Quiz e exercícios
-
-### Diferenciais
-- Streaming adaptativo (HLS)
-- Transcrições e legendas
-- Comunidade (fórum por curso)`,
-  },
-  {
-    id: 5,
-    name: "Agenda e Reservas",
-    description: "Sistema de agendamento para serviços (salão, consultório, etc).",
-    language: "JavaScript",
-    details: `## Sobre o Projeto
-Sistema de reservas com calendário e notificações.
-
-### Stack Sugerida
-- **Frontend:** React, FullCalendar, date-fns
-- **Backend:** Node.js + Express
-- **Banco:** PostgreSQL
-- **Email:** Resend ou SendGrid
-- **Agendamento:** node-cron
-
-### Funcionalidades Principais
-- Calendário interativo (semana/mês)
-- Disponibilidade por profissional/serviço
-- Reserva online com confirmação
-- Lembretes por email/SMS
-- Cancelamento e reagendamento
-- Histórico de atendimentos
-- Integração com Google Calendar
-
-### Diferenciais
-- Lista de espera
-- Pagamento antecipado
-- Multi-estabelecimento`,
-  },
-  {
-    id: 6,
-    name: "API de Serviços",
-    description: "Backend como serviço com documentação e playground.",
-    language: "TypeScript",
-    details: `## Sobre o Projeto
-API RESTful genérica com documentação Swagger e rate limiting.
-
-### Stack Sugerida
-- **Backend:** Node.js + NestJS ou Fastify
-- **Banco:** PostgreSQL + TypeORM/Prisma
-- **Cache:** Redis
-- **Docs:** Swagger/OpenAPI
-- **Auth:** API Keys + OAuth2
-
-### Funcionalidades Principais
-- CRUD genérico com filtros avançados
-- Autenticação por API Key e JWT
-- Rate limiting por plano (free/pro/enterprise)
-- Webhooks para eventos
-- Logs de requisições (audit trail)
-- Documentação interativa
-- SDKs em múltiplas linguagens
-
-### Diferenciais
-- Versionamento da API (v1, v2)
-- GraphQL como alternativa
-- Métricas e analytics de uso`,
-  },
 ];
 
 /* ─── Modal de detalhes da ideia ───────────────────── */
